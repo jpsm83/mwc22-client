@@ -1,10 +1,17 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+// important warn - from react-router-dom 6 there are lots of changes
+// compare with previews versions - read the docs
+// react-router-dom 6+ has lots of change - read docs
+// here we are using react-router-dom 5.2.0
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <div>
-    <h1>Home</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
