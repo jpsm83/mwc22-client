@@ -8,17 +8,17 @@ import Home from "./pages/Home/Home";
 import EditUser from "./pages/EditUser/EditUser";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
-import UserDetail from "./pages/UserDetail/UserDetail";
+import UserPage from "./pages/UserPage/UserPage";
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/edit-user" element={<EditUser />} />
+        <Route path="/edit-user/:id" element={<EditUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/user-detail" element={<UserDetail />} />
+        <Route path="/user-detail/:id" element={<UserPage />} />
       </Routes>
     </div>
   );

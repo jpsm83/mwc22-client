@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const UserCard = ({ id, firstname, lastname, photo, experience }) => {
   return (
     <div className="flex flex-grow shadow-lg flex-col m-1.5 rounded-lg w-60 hover:shadow-2xl hover:scale-105 transition transform duration-200 ease-out">
-      <Link to={`/recipe/${id}`}>
+      <Link to={`/user-detail/${id}`}>
         <h4 className="text-sm sm:text-lg m-2 font-bold text-red-700 text-center">
           {`${firstname} ${lastname}`}
         </h4>

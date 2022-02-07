@@ -15,7 +15,7 @@ const UserForm = ({
   return (
     <div className="m-6">
       <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
-        <form className="space-y-4" onSubmit={(event) => handleSubmit(event)}>
+        <form className="space-y-4" onSubmit={(e) => handleSubmit(e)}>
           {(signup || editUser) && (
             <div className="flex flex-col">
               <label className="labels" htmlFor="username">
@@ -26,7 +26,7 @@ const UserForm = ({
                 type="text"
                 name="username"
                 value={fields.username}
-                onChange={(event) => handleChange(event)}
+                onChange={(e) => handleChange(e)}
               />
               {errors.username && (
                 <p className="errorInputs sm:text-md">{errors.username}</p>
