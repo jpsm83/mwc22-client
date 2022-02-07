@@ -1,109 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div className="flex wrap w-full justify-evenly items-center bg-gray-200">
-      <div className="footTag sm:text-md">
-        <h4 className="font-bold mb-4">About</h4>
-        <ul>
-          <li>
-            <Link className="anchorLink" to="">
-              Looks simple
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              But got me
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              A lot time
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              To get here
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="footTag sm:text-md">
-        <h4 className="font-bold mb-4">Comunity</h4>
-        <ul>
-          <li>
-            <Link className="anchorLink" to="">
-              It is not perfect
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              It is far from amazing
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              But I am pretty
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              Happy with my results
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="footTag sm:text-md">
-        <h4 className="font-bold mb-4">Food</h4>
-        <ul>
-          <li>
-            <Link className="anchorLink" to="">
-              I worked very
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              Hard to get here
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              Every step was
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              Huge personal achivement
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="footTag sm:text-md">
-        <h4 className="font-bold mb-4">Support</h4>
-        <ul>
-          <li>
-            <Link className="anchorLink" to="">
-              I hope you
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              Will appreciate
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              My work
-            </Link>
-          </li>
-          <li>
-            <Link className="anchorLink" to="">
-              {"Thanks :)"}
-            </Link>
-          </li>
-        </ul>
+    <div className="p-4 w-full  bg-gray-200">
+      <h3 className="font-bold text-gray-600 text-center mb-2">
+        Created by Joao P S Machado
+      </h3>
+      <div className="sm:text-md flex justify-center items-center text-gray-400">
+        <div className="cursor-pointer text-right">
+          <a href="https://github.com/jpsm83/mwc22-server" target="blank">
+            <p className="font-bold mr-1">Backend</p>
+            <p className="sm:text-sm mr-1">Code</p>
+          </a>
+        </div>
+        <img
+          src="./img/github.webp"
+          alt="Food logo"
+          className="w-12 flex-shrink-0 mx-2 md:flex z-10"
+        />
+        <div className="cursor-pointer text-left">
+          <a href="https://github.com/jpsm83/mwc22-client" target="blank">
+            <p className="font-bold ml-1">Frontend</p>
+            <p className="sm:text-sm ml-1">Code</p>
+          </a>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

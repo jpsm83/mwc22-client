@@ -30,6 +30,7 @@ const UserDetails = ({
     // if (id === user.id) {
     //   return true;
     // }
+    return true
   };
 
   const deleteUser = () => {

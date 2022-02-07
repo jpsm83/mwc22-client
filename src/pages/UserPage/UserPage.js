@@ -7,14 +7,14 @@ import { useParams } from "react-router-dom";
 const UserPage = () => {
   const userService = new UserService();
 
-  const params = useParams()
+  const params = useParams();
 
   const [selectedUser, setSelectedUser] = useState();
 
   // useEffect is the first function to execute in a component
 
   useEffect(() => {
-    const { id } = params
+    const { id } = params;
     userService
       .getOne(id)
       .then((res) => {
@@ -35,4 +35,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage
+export default UserPage;
