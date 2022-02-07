@@ -1,17 +1,16 @@
 import React from "react";
 
-export default function RecipeForm(props) {
-  const {
-    handleSubmit,
-    handleChange,
-    errors,
-    fields,
-    signup,
-    editUser,
-    isValid,
-    buttonType,
-    goBack,
-  } = props;
+const UserForm = ({
+  handleSubmit,
+  handleChange,
+  errors,
+  fields,
+  signup,
+  editUser,
+  isValid,
+  buttonType,
+  goBack,
+}) => {
 
   return (
     <div className="m-6">
@@ -106,3 +105,5 @@ export default function RecipeForm(props) {
     </div>
   );
 }
+
+export default UserForm()
