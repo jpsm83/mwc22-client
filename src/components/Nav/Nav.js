@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withAuth } from "../../context/auth.context";
 
 const Nav = (props) => {
@@ -9,7 +9,6 @@ const Nav = (props) => {
   const { user, logout } = props;
 
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
@@ -31,8 +30,8 @@ const Nav = (props) => {
     <div
       className={
         !show
-          ? "fixed flex justify-end items-center top-0 p-5 w-full z-10 ease-in duration-500 bg-gradient-to-l from-yellow-700 to-transparent"
-          : "fixed flex justify-end items-center top-0 p-5 w-full ease-in bg-gradient-to-l from-yellow-700 to-transparent duration-500 bg-yellow-700 z-30"
+          ? "fixed flex justify-end items-center top-0 p-5 w-full z-20 ease-in bg-gradient-to-l from-yellow-700 to-transparent duration-1000"
+          : "fixed flex justify-end items-center top-0 p-5 w-full z-20 ease-in bg-gradient-to-l from-yellow-700 to-transparent duration-1000 bg-yellow-700"
       }
     >
       {user ? (
@@ -55,12 +54,12 @@ const Nav = (props) => {
         </div>
       ) : (
         <div className="text-gray-200 flex cursor-pointer items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
-              <Link to="/login">
-                <p className="font-bold">LogIn</p>
-              </Link>
-              <Link to="/signup">
-                <p className="sm:text-sm">SignIn</p>
-              </Link>
+          <Link to="/login">
+            <p className="font-bold">LogIn</p>
+          </Link>
+          <Link to="/signup">
+            <p className="sm:text-sm">SignIn</p>
+          </Link>
         </div>
       )}
     </div>

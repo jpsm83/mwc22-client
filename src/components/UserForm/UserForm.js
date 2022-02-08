@@ -4,7 +4,7 @@ const UserForm = ({
   handleSubmit,
   handleChange,
   errors,
-  fields,
+  fields: { username, firstname, lastname, password, experience,  skills, email, photo, description, country, city },
   signup,
   editUser,
   isValid,
@@ -25,7 +25,7 @@ const UserForm = ({
                 className="inputs sm:text-md"
                 type="text"
                 name="username"
-                value={fields.username}
+                value={username}
                 onChange={(e) => handleChange(e)}
               />
               {errors.username && (
@@ -43,7 +43,7 @@ const UserForm = ({
                 className="inputs sm:text-md"
                 type="text"
                 name="photo"
-                value={fields.photo}
+                value={photo}
                 onChange={(event) => handleChange(event)}
               />
               {errors.photo && (
@@ -60,7 +60,7 @@ const UserForm = ({
               className="inputs sm:text-md"
               type="text"
               name="email"
-              value={fields.email}
+              value={email}
               onChange={(event) => handleChange(event)}
             />
             {errors.email && (
@@ -76,7 +76,7 @@ const UserForm = ({
               className="inputs sm:text-md"
               type="password"
               name="password"
-              value={fields.password}
+              value={password}
               onChange={(event) => handleChange(event)}
             />
             {errors.password && (
@@ -106,4 +106,4 @@ const UserForm = ({
   );
 }
 
-export default UserForm()
+export default UserForm
