@@ -9,7 +9,6 @@ const Login = (props) => {
   const [userErrors, setUserErrors] = useState(null);
 
   const navigate = useNavigate();
-  const buttonType = "Login";
 
   const handleSubmit = (e) => {
     e.preDefault();
@@ -33,24 +32,20 @@ const Login = (props) => {
   };
 
   const isValid = () => {
-    const { errors } = userErrors;
-    return !Object.keys(errors).some((key) => errors[key]);
-  };
-
-  const goBack = () => {
-    navigate("/");
-  };
+    if(userErrors){
+    return !Object.keys(userErrors).some((key) => userErrors[key]);
+  }}
 
   return (
     <div className="flex justify-center">
       <UserForm
-        goBack={() => goBack()}
         isValid={() => isValid()}
         handleSubmit={(e) => handleSubmit(e)}
         handleChange={(e) => handleChange(e)}
         {...userFields}
         {...userErrors}
-        buttonType={buttonType}
+        buttonType="Login"
+        loginPage={true}
       />
     </div>
   );

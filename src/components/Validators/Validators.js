@@ -3,93 +3,45 @@ const EMAIL_PATTERN =
   /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
 
 //front validator MUST be equal to back validators
-const recipeValidators = {
-  dishName: (value) => {
-    let message;
-    if (!value) {
-      message = "Dish name is required";
-    }
-    return message;
-  },
-
-  ingredients: (value) => {
-    let message;
-    if (!value) {
-      message = "Ingredients are required";
-    }
-    return message;
-  },
-
-  prepTime: (value) => {
-    let message;
-    if (!value) {
-      message = "Prep time is required";
-    }
-    return message;
-  },
-
-  image: (value) => {
-    let message;
-    if (!value) {
-      message = "Image is required";
-    }
-    return message;
-  },
-
-  preparation: (value) => {
-    let message;
-    if (!value) {
-      message = "Preparation is required";
-    }
-    return message;
-  },
-
-  howToCook: (value) => {
-    let message;
-    if (!value) {
-      message = "How to cook is required";
-    }
-    return message;
-  },
-
-  cousine: (value) => {
-    let message;
-    if (!value) {
-      message = "Cousine time is required";
-    }
-    return message;
-  },
-
-  type: (value) => {
-    let message;
-    if (!value) {
-      message = "Type time is required";
-    }
-    return message;
-  },
-
-  servings: (value) => {
-    let message;
-    if (!value) {
-      message = "Servings are required";
-    }
-    return message;
-  },
-};
-
 const userValidators = {
   username: (value) => {
     let message;
-    if (!value) {
-      message = "Username is required";
+    if (!value || value.length > 50) {
+      message =
+        "Username invalid! It is required and maximun of 50 characters long.";
     }
     return message;
   },
 
-  photo: (value) => {
+  firstname: (value) => {
     let message;
-    if (value.length > 300) {
-      message = "300 characters maximun";
+    if (value.length > 50) {
+      message = "First name invalid! Maximun of 50 characters long.";
+    }
+    return message;
+  },
+
+  lastname: (value) => {
+    let message;
+    if (value.length > 50) {
+      message = "Last name invalid! Maximun of 50 characters long.";
+    }
+    return message;
+  },
+
+  password: (value) => {
+    let message;
+    if (!value || value.length < 5) {
+      message =
+        "Password invalid! It is required and minimun of 5 characters long.";
+    }
+    return message;
+  },
+
+  skills: (value) => {
+    let message;
+    if (value.length > 3000) {
+      message = "Skills invalid! Maximun of 3000 characters long.";
     }
     return message;
   },
@@ -99,20 +51,18 @@ const userValidators = {
     if (!value) {
       message = "Email is required";
     } else if (!EMAIL_PATTERN.test(value)) {
-      message = "Invalid Email";
+      message = "Email required!";
     }
     return message;
   },
 
-  password: (value) => {
+  description: (value) => {
     let message;
-    if (!value) {
-      message = "Password is required";
-    } else if (value.length < 5) {
-      message = "5 characters minimun";
+    if (value.length > 3000) {
+      message = "Description invalid! Maximun of 3000 characters long.";
     }
     return message;
   },
 };
 
-export { recipeValidators, userValidators };
+export { userValidators };

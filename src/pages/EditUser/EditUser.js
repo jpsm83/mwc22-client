@@ -9,7 +9,6 @@ const EditUser = (props) => {
   const [userErrors, setUserErrors] = useState(null);
 
   const navigate = useNavigate();
-  const buttonType = "Update User";
 
   // useEffect is the first function to execute in a component
   useEffect(() => {
@@ -22,7 +21,7 @@ const EditUser = (props) => {
     if (isValid()) {
       // props.edit comes from context/auth.context.js - withAuth
       props.edit(userFields);
-      goBack();
+      navigate("/");
     }
   };
 
@@ -39,24 +38,20 @@ const EditUser = (props) => {
   };
 
   const isValid = () => {
-    const { errors } = userErrors;
-    return !Object.keys(errors).some((key) => errors[key]);
-  };
-
-  const goBack = () => {
-    navigate("/");
-  };
+    if(userErrors){
+    return !Object.keys(userErrors).some((key) => userErrors[key]);
+  }}
 
   return (
     <div className="flex justify-center">
       <UserForm
-        goBack={() => goBack()}
         isValid={() => isValid()}
         handleSubmit={(e) => handleSubmit(e)}
         handleChange={(e) => handleChange(e)}
         {...userFields}
         {...userErrors}
-        buttonType={buttonType}
+        buttonType="Update"
+        editUserPage={true}
       />
     </div>
   );
