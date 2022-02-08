@@ -5,22 +5,35 @@ import UserForm from "../../components/UserForm/UserForm";
 import { withAuth } from "../../context/auth.context";
 
 const EditUser = (props) => {
-  const [userFields, setUserFields] = useState({});
-  const [userErrors, setUserErrors] = useState(null);
+  const [userFields, setUserFields] = useState({
+  });
+  const [userErrors, setUserErrors] = useState({
+    email: null,
+    password: null,
+    username: null,
+    firstname: null,
+    lastname: null,
+    skills: null,
+    description: null,
+  });
+
+const { user, edit } = props
 
   const navigate = useNavigate();
 
   // useEffect is the first function to execute in a component
   useEffect(() => {
-    // props.user comes from context/auth.context.js - withAuth
-    setUserFields(props.user);
+    // user comes from context/auth.context.js - withAuth
+    // it has been destructured above from props
+    setUserFields(user);
   }, []);
-
+  
   const handleSubmit = (e) => {
-    e.preDefault();
+    e.preventDefault();
     if (isValid()) {
       // props.edit comes from context/auth.context.js - withAuth
-      props.edit(userFields);
+      // it has been destructured above from props
+      edit(user.id, userFields);
       navigate("/");
     }
   };
@@ -38,9 +51,10 @@ const EditUser = (props) => {
   };
 
   const isValid = () => {
-    if(userErrors){
-    return !Object.keys(userErrors).some((key) => userErrors[key]);
-  }}
+    if (userErrors) {
+      return !Object.keys(userErrors).some((key) => userErrors[key]);
+    }
+  };
 
   return (
     <div className="flex justify-center">
@@ -48,8 +62,8 @@ const EditUser = (props) => {
         isValid={() => isValid()}
         handleSubmit={(e) => handleSubmit(e)}
         handleChange={(e) => handleChange(e)}
-        {...userFields}
-        {...userErrors}
+        userFields={userFields}
+        userErrors={userErrors}
         buttonType="Update"
         editUserPage={true}
       />

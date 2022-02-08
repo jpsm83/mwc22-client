@@ -11,11 +11,11 @@ export default class AuthService {
     });
   }
 
-  // same methods from backend
+  // same methods from back
   signup = (data) => this.instance.post("/signup", data);
   login = (data) => this.instance.post("/login", data);
   logout = () => this.instance.post("/logout");
   isLoggedin = () => this.instance.get("/isLoggedin");
-  edit = (data) => this.instance.put("/edit-user", data);
+  edit = (id, data) => this.instance.put(`/${id}`, data);
   delete = (id) => this.instance.delete(`/${id}`);
 }

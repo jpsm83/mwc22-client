@@ -57,9 +57,9 @@ class AuthProvider extends React.Component {
       .catch((error) => console.error(error));
   };
 
-  edit = (data) => {
+  edit = (id, data) => {
     this.authService
-      .edit(data)
+      .edit(id, data)
       .then((response) => this.setState({ ...this.state, user: response.data }))
       .catch((error) => console.error(error));
   };
@@ -107,8 +107,16 @@ const withAuth = (WrappedComponent) => {
       <Consumer>
         {/* value comes from provider return */}
         {(value) => {
-          const { isLoading, isLoggedin, user, signup, login, logout, edit, deleteOne } =
-            value;
+          const {
+            isLoading,
+            isLoggedin,
+            user,
+            signup,
+            login,
+            logout,
+            edit,
+            deleteOne,
+          } = value;
 
           // We pass the context props and also the props from the component that are recieving the context
           return (

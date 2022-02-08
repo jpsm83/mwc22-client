@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { withAuth } from "../../context/auth.context";
 
 const Nav = (props) => {
@@ -9,6 +9,8 @@ const Nav = (props) => {
   const { user, logout } = props;
 
   const [show, setShow] = useState(false);
+
+const navigate = useNavigate()
 
   const transitionNavBar = () => {
     if (window.scrollY > 100) {
@@ -41,7 +43,7 @@ const Nav = (props) => {
               <Link to={`/edit-user/${user.id}`}>
                 <p className="font-bold">{user.username}</p>
               </Link>
-              <p className="sm:text-sm" onClick={logout}>
+              <p className="sm:text-sm" onClick={() => {logout(); navigate("/")}}>
                 Logout
               </p>
             </div>
@@ -54,12 +56,12 @@ const Nav = (props) => {
         </div>
       ) : (
         <div className="text-gray-200 flex cursor-pointer items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
-          <Link to="/login">
-            <p className="font-bold">LogIn</p>
-          </Link>
-          <Link to="/signup">
-            <p className="sm:text-sm">SignIn</p>
-          </Link>
+              <Link to="/login">
+                <p className="font-bold">LogIn</p>
+              </Link>
+              <Link to="/signup">
+                <p className="sm:text-sm">SignIn</p>
+              </Link>
         </div>
       )}
     </div>
