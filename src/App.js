@@ -10,12 +10,12 @@ import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import UserPage from "./pages/UserPage/UserPage";
 import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
     <div>
-      {/* <Header /> */}
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/edit-user/:id" element={<EditUser />} />

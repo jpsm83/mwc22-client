@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./Nav.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { withAuth } from "../../context/auth.context";
 
-export default function Nav() {
+const Nav = (props) => {
+  // user and logout come from context/auth.context.js
+  // it can be use in any component because it is exported as AuthProvider
+  // and wrap all the aplication in its root index.js
+  const { user, logout } = props;
+
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
@@ -23,21 +28,45 @@ export default function Nav() {
   }, []);
 
   return (
-    <div className={`nav ${show && "nav_black"}`}>
-      <div className="nav_contents">
-        <img
-          onClick={() => navigate("/")}
-          className="nav_logo"
-          src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-          alt="Netflix Logo"
-        />
-        <img
-          onClick={() => navigate("/profile")}
-          className="nav_avatar"
-          src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
-          alt="Avatar User"
-        />
-      </div>
+    <div
+      className={
+        !show
+          ? "fixed flex justify-end items-center top-0 p-5 w-full z-10 ease-in duration-500 bg-gradient-to-l from-yellow-700 to-transparent"
+          : "fixed flex justify-end items-center top-0 p-5 w-full ease-in bg-gradient-to-l from-yellow-700 to-transparent duration-500 bg-yellow-700 z-30"
+      }
+    >
+      {user ? (
+        <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
+          <div className="flex items-center space-x-2">
+            <div className=" cursor-pointer">
+              <Link to={`/edit-user/${user.id}`}>
+                <p className="font-bold">{user.username}</p>
+              </Link>
+              <p className="sm:text-sm" onClick={logout}>
+                Logout
+              </p>
+            </div>
+            <img
+              src={user.photo}
+              alt={user.username}
+              className="object-cover h-12 w-12 flex cursor-auto justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
+            />
+          </div>
+        </div>
+      ) : (
+        <div className="text-gray-200 flex cursor-pointer items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
+              <Link to="/login">
+                <p className="font-bold">LogIn</p>
+              </Link>
+              <Link to="/signup">
+                <p className="sm:text-sm">SignIn</p>
+              </Link>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+// withAuth comes from context and alow the component to use it
+// methods - isLoading, isLoggedIn, user, signup, login, logout, edit
+export default withAuth(Nav);
