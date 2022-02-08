@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserForm = ({
   handleSubmit,
@@ -26,7 +27,7 @@ const UserForm = ({
     city,
   } = userFields;
 
-  console.log(email);
+  const navigate = useNavigate();
 
   return (
     <div className="m-6">
@@ -88,7 +89,7 @@ const UserForm = ({
             </div>
           )}
 
-          {editUserPage && (
+          {/* {editUserPage && (
             <>
               <div className="flex flex-col">
                 <label className="labels" htmlFor="photo">
@@ -106,19 +107,18 @@ const UserForm = ({
                 )}
               </div>
             </>
-          )}
+          )} */}
 
           <div className="text-center space-x-6">
             <button
               className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
-              disabled={!isValid}
+              // disabled={!isValid}
               type="submit"
             >
               {buttonType}
             </button>
-            <button
+            <button onClick={() => navigate("/")}
               className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
-              type="submit"
             >
               Back
             </button>

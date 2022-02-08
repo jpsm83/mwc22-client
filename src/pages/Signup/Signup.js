@@ -6,13 +6,13 @@ import { withAuth } from "../../context/auth.context";
 
 const Signup = (props) => {
 
-  const [userFields, setUserFields] = useState({email: "", password: ""});
-  const [userErrors, setUserErrors] = useState({email: null, password: null});
+  const [userFields, setUserFields] = useState({email: "", password: "", username: ""});
+  const [userErrors, setUserErrors] = useState({email: null, password: null, username: null});
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preDefault();
+    e.preventDefault();
     if (isValid()) {
       // props.signup comes from context/auth.context.js - withAuth
       props.signup(userFields);
@@ -26,7 +26,6 @@ const Signup = (props) => {
       ...userFields,
       [name]: value,
     })
-    console.log(userFields);
     setUserErrors({
       ...userErrors,
       [name]: userValidators[name](value),
