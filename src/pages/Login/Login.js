@@ -38,7 +38,8 @@ const Login = (props) => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center -mt-20 sm:-mt-52 md:-mt-72 lg:-mt-96">
+      <div className="max-w-3xl m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
       <UserForm
         isValid={() => isValid()}
         handleSubmit={(e) => handleSubmit(e)}
@@ -48,6 +49,7 @@ const Login = (props) => {
         buttonType="Login"
         loginPage={true}
       />
+    </div>
     </div>
   );
 };

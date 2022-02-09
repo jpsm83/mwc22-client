@@ -4,27 +4,18 @@
 
 @responsive {
     .text-shadow-lg {
-      text-shadow: 3px 3px 6px rgb(0 0 0 / 26%), 0 0 5px rgb(15 3 86 / 22%);
+        text-shadow: 3px 3px 6px rgb(0 0 0 / 26%), 0 0 5px rgb(15 3 86 / 22%);
     }
-  }
+}
   
 @layer components {
-    /* .typesCousine {
-        @apply cursor-pointer shadow-md items-center pb-1 text-center justify-items-center px-4 hover:text-white hover:shadow-xl hover:scale-110 transition transform duration-200 ease-out active:scale-90 rounded-lg
-    },
-    .anchorLink {
-        @apply text-xs text-gray-600 font-sans
-    },
-    .footTag {
-        @apply flex flex-col items-start my-10 text-sm flex-wrap
-    }, */
-    /* .labels {
-        @apply text-lg sm:text-md font-bold text-gray-500 mb-1
-    },
+    .labels {
+        @apply text-lg font-bold text-white
+    }
     .inputs {
-        @apply text-sm sm:text-md px-4 text-gray-600 cursor-text p-1 w-full flex-grow rounded-md focus:outline-none
-    } */
-    /* .errorInputs {
-        @apply text-sm text-red-700
-    } */
+        @apply text-sm p-2 text-gray-700 cursor-text flex-grow rounded-md
+    }
+    .errorInputs {
+        @apply text-sm text-red-700 mt-1 font-bold 
+    }
 }

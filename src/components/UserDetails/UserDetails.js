@@ -14,7 +14,7 @@ const UserDetails = ({
   photo,
 }) => {
   return (
-    <div className="flex flex-col shadow-2xl rounded-lg mb-6">
+    <div className="flex flex-col shadow-2xl rounded-lg">
       <div className="flex flex-col m-3 items-center sm:items-stretch sm:flex-row">
         <div className="flex justify-center rounded-full h-60 w-60 sm:rounded-lg shadow-2xl items-center flex-shrink-0 overflow-hidden">
           <img className="w-full h-full object-cover" src={photo} alt={`${firstname} ${lastname}`} />

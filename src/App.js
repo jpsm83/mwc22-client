@@ -15,7 +15,7 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 h-screen flex flex-col justify-between">
       <Nav />
       <div className="sticky top-0">
         <Banner />

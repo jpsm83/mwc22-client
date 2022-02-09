@@ -36,14 +36,12 @@ const Nav = ({ user, logout, handleSearch }) => {
           : "fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000 bg-yellow-700"
       }
     >
-    <div className="shrink-0">
-    <img
-        src="/img/mwc22-logo.png"
-        alt="mwc logo"
-        className="h-14"
-      />
-    </div>
-          <Search handleSearch={(e) => handleSearch(e)} />
+      <Link to={"/"}>
+        <div className="shrink-0">
+          <img src="/img/mwc22-logo.png" alt="mwc logo" className="h-14" />
+        </div>
+      </Link>
+      <Search handleSearch={(e) => handleSearch(e)} />
       {user ? (
         <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
           <div className="flex items-center space-x-2">

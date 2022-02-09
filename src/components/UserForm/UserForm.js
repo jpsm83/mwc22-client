@@ -33,17 +33,37 @@ const UserForm = ({
   const navigate = useNavigate();
 
   return (
-    <div className="m-6">
-      <div className="flex mx-auto flex-col shadow-2xl rounded-lg max-w-5xl p-3 sm:p-6">
+    <div>
+      <div className="flex flex-col w-full shadow-2xl rounded-lg p-3 sm:p-6">
         <form className="space-y-4" onSubmit={handleSubmit}>
+          {(signupPage || editUserPage) && (
+            <div className="flex flex-col">
+                <label className="labels sm:text-md text-shadow-lg"
+              htmlFor="username">
+                Username:
+              </label>
+              <input
+                  className="inputs sm:text-md focus:outline-none"
+                type="text"
+                name="username"
+                value={username}
+                onChange={handleChange}
+              />
+              {userErrors.username && (
+                <p className="errorInputs sm:text-md">{userErrors.username}</p>
+              )}
+            </div>
+          )}
           {(signupPage || editUserPage || loginPage) && (
             <>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="email">
+                <label className="labels sm:text-md text-shadow-lg"
+                  htmlFor="email"
+                >
                   Email:
                 </label>
                 <input
-                  className="inputs sm:text-md"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="email"
                   value={email}
@@ -54,11 +74,12 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="password">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="password">
                   Password:
                 </label>
                 <input
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="password"
                   name="password"
                   value={password}
@@ -72,31 +93,31 @@ const UserForm = ({
               </div>
             </>
           )}
-          {(signupPage || editUserPage) && (
-            <div className="flex flex-col">
-              <label className="labels" htmlFor="username">
-                Username:
-              </label>
-              <input
-                className="inputs sm:text-md"
-                type="text"
-                name="username"
-                value={username}
-                onChange={handleChange}
-              />
-              {userErrors.username && (
-                <p className="errorInputs sm:text-md">{userErrors.username}</p>
-              )}
-            </div>
-          )}
           {editUserPage && (
             <>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="firstname">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="photo">
+                  Photo:
+                </label>
+                <input
+                    className="inputs sm:text-md focus:outline-none"
+                  type="text"
+                  name="photo"
+                  value={photo}
+                  onChange={handleChange}
+                />
+                {userErrors.photo && (
+                  <p className="errorInputs sm:text-md">{userErrors.photo}</p>
+                )}
+              </div>
+              <div className="flex flex-col">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="firstname">
                   Firstname:
                 </label>
                 <input
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="firstname"
                   value={firstname}
@@ -109,11 +130,12 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="lastname">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="lastname">
                   Lastname:
                 </label>
                 <input
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="lastname"
                   value={lastname}
@@ -126,21 +148,44 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="experience">
-                  Experience:
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="country">
+                  Country:
                 </label>
                 <input
-                  className="inputs sm:text-md"
-                  type="number"
-                  name="experience"
-                  value={experience}
+                    className="inputs sm:text-md focus:outline-none"
+                  type="text"
+                  name="country"
+                  value={country}
                   onChange={handleChange}
                 />
+                {userErrors.country && (
+                  <p className="errorInputs sm:text-md">{userErrors.country}</p>
+                )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="fields">Fields:</label>
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="city">
+                  City:
+                </label>
+                <input
+                    className="inputs sm:text-md focus:outline-none"
+                  type="text"
+                  name="city"
+                  value={city}
+                  onChange={handleChange}
+                />
+                {userErrors.city && (
+                  <p className="errorInputs sm:text-md">{userErrors.city}</p>
+                )}
+              </div>
+              <div className="flex flex-col">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="fields">
+                  Fields:
+                </label>
                 <select
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="fields"
                   value={fields}
@@ -151,13 +196,35 @@ const UserForm = ({
                   <option value="Data">Data</option>
                   <option value="Full Stack">Full Stack</option>
                 </select>
+                {userErrors.fields && (
+                  <p className="errorInputs sm:text-md">{userErrors.fields}</p>
+                )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="skills">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="experience">
+                  Experience:
+                </label>
+                <input
+                    className="inputs sm:text-md focus:outline-none"
+                  type="number"
+                  name="experience"
+                  value={experience}
+                  onChange={handleChange}
+                />
+                {userErrors.experience && (
+                  <p className="errorInputs sm:text-md">
+                    {userErrors.experience}
+                  </p>
+                )}
+              </div>
+              <div className="flex flex-col">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="skills">
                   Skills:
                 </label>
                 <textarea
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="skills"
                   value={skills}
@@ -168,11 +235,12 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="description">
+                  <label className="labels sm:text-md text-shadow-lg"
+                htmlFor="description">
                   Description:
                 </label>
                 <textarea
-                  className="inputs sm:text-md"
+                    className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="description"
                   value={description}
@@ -183,42 +251,6 @@ const UserForm = ({
                     {userErrors.description}
                   </p>
                 )}
-              </div>
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="country">
-                  Country:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="country"
-                  value={country}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="city">
-                  City:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="city"
-                  value={city}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="flex flex-col">
-                <label className="labels" htmlFor="photo">
-                  Photo:
-                </label>
-                <input
-                  className="inputs sm:text-md"
-                  type="text"
-                  name="photo"
-                  value={photo}
-                  onChange={handleChange}
-                />
               </div>
             </>
           )}
@@ -234,7 +266,7 @@ const UserForm = ({
               onClick={() => navigate("/")}
               className="cursor-pointer shadow-md bg-yellow-700 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
             >
-              Back
+              Cancel
             </button>
             {user && (
               <button

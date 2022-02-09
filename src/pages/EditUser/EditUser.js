@@ -33,7 +33,7 @@ const EditUser = (props) => {
       // props.edit comes from context/auth.context.js - withAuth
       // it has been destructured above from props
       edit(user.id, userFields);
-      setTimeout(navigate("/"), 2000)
+      setTimeout(navigate("/"), 2000);
     }
   };
 
@@ -63,17 +63,19 @@ const EditUser = (props) => {
   };
 
   return (
-    <div className="flex justify-center">
-      <UserForm
-        isValid={() => isValid()}
-        handleSubmit={(e) => handleSubmit(e)}
-        handleChange={(e) => handleChange(e)}
-        deleteCurrentUser={(e) => deleteCurrentUser(e)}
-        userFields={userFields}
-        userErrors={userErrors}
-        buttonType="Update"
-        editUserPage={true}
-      />
+    <div className="flex justify-center -mt-20 sm:-mt-36 md:-mt-48 lg:-mt-72">
+      <div className="max-w-3xl m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
+        <UserForm
+          isValid={() => isValid()}
+          handleSubmit={(e) => handleSubmit(e)}
+          handleChange={(e) => handleChange(e)}
+          deleteCurrentUser={(e) => deleteCurrentUser(e)}
+          userFields={userFields}
+          userErrors={userErrors}
+          buttonType="Update"
+          editUserPage={true}
+        />
+      </div>
     </div>
   );
 };
