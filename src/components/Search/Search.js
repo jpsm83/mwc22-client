@@ -8,8 +8,10 @@ const Search = ({ handleSearch }) => {
         onChange={handleSearch}
         className="p-2 border-none w-full rounded-l-lg focus:outline-none px-4"
         type="text"
-        placeholder="Dish Name"
+        placeholder="Search Developer"
       />
+<p></p>
+
       <SearchIcon className="h-12 p-4" />
     </div>
   );

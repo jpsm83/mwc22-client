@@ -2,11 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="p-3 w-full bg-gray-200">
-      <h3 className="font-bold sm:text-md text-sm text-yellow-700 text-center mb-1">
-        Created by Joao P S Machado
-      </h3>
-      <div className="sm:text-sm text-xs flex justify-center items-center text-yellow-600">
+    <div className="p-3 w-full bg-yellow-600">
+      <a href="https://joao-resume.vercel.app" target="blank">
+        <p className="font-bold sm:text-md text-shadow-lg text-sm text-gray-200 text-center mb-1">
+          Created by Joao P S Machado
+        </p>
+      </a>
+      <div className="sm:text-sm text-xs flex justify-center items-center text-yellow-400">
         <div className="cursor-pointer text-right">
           <a href="https://github.com/jpsm83/mwc22-server" target="blank">
             <p className="font-bold mr-1">Backend</p>

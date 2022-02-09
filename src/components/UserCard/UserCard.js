@@ -15,10 +15,10 @@ const UserCard = ({ id, firstname, lastname, photo, experience, fields, country,
             alt={firstname}
           />
         </div>
-        <h3 className="absolute -right-3 bottom-20 font-bold rounded-full bg-yellow-600 text-white p-2">{fields}</h3>
+        <h3 className="absolute -right-3 bottom-20 font-bold bg-yellow-600 rounded-full text-white p-2">{fields}</h3>
         <div className="text-sm sm:text-md font-bold mt-3">
           <p className="text-yellow-800 text-center">{experience} years of experience</p>
-          <div className="flex justify-between p-2 text-blue-900">
+          <div className="flex justify-between capitalize p-2 text-blue-900">
           <p>{city}</p>
           <p>{country}</p>
           </div>
