@@ -138,11 +138,11 @@ const UserForm = ({
                 />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="fields">Fields:</label>
+                <label className="labels" htmlFor="fields">Fields:</label>
                 <select
-                  name="fields"
-                  id="fields"
                   className="inputs sm:text-md"
+                  type="text"
+                  name="fields"
                   value={fields}
                   onChange={handleChange}
                 >

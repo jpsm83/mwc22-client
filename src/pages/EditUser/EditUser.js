@@ -33,7 +33,7 @@ const EditUser = (props) => {
       // props.edit comes from context/auth.context.js - withAuth
       // it has been destructured above from props
       edit(user.id, userFields);
-      navigate("/");
+      setTimeout(navigate("/"), 2000)
     }
   };
 
