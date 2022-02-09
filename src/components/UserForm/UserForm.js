@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const UserForm = ({
+  deleteCurrentUser,
   handleSubmit,
   handleChange,
   userFields,
@@ -229,6 +230,12 @@ const UserForm = ({
               className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
             >
               Back
+            </button>
+            <button
+              onClick={deleteCurrentUser}
+              className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+            >
+              Delete Profile
             </button>
           </div>
         </form>

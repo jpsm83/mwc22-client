@@ -64,7 +64,7 @@ class AuthProvider extends React.Component {
       .catch((error) => console.error(error));
   };
 
-  delete = (id) => {
+  deleteUser = (id) => {
     this.authService
       .delete(id)
       .then(() => this.setState({ isLoggedin: false, user: null }))
@@ -86,7 +86,7 @@ class AuthProvider extends React.Component {
           login: this.login,
           logout: this.logout,
           edit: this.edit,
-          deleteOne: this.delete,
+          deleteUser: this.deleteUser,
         }}
       >
         {this.props.children}
@@ -115,7 +115,7 @@ const withAuth = (WrappedComponent) => {
             login,
             logout,
             edit,
-            deleteOne,
+            deleteUser,
           } = value;
 
           // We pass the context props and also the props from the component that are recieving the context
@@ -127,7 +127,7 @@ const withAuth = (WrappedComponent) => {
               signup={signup}
               login={login}
               logout={logout}
-              deleteOne={deleteOne}
+              deleteUser={deleteUser}
               edit={edit}
               {...props}
             />

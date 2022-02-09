@@ -5,8 +5,7 @@ import UserForm from "../../components/UserForm/UserForm";
 import { withAuth } from "../../context/auth.context";
 
 const EditUser = (props) => {
-  const [userFields, setUserFields] = useState({
-  });
+  const [userFields, setUserFields] = useState({});
   const [userErrors, setUserErrors] = useState({
     email: null,
     password: null,
@@ -17,7 +16,7 @@ const EditUser = (props) => {
     description: null,
   });
 
-const { user, edit } = props
+  const { user, edit, deleteUser } = props;
 
   const navigate = useNavigate();
 
@@ -27,7 +26,7 @@ const { user, edit } = props
     // it has been destructured above from props
     setUserFields(user);
   }, []);
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isValid()) {
@@ -36,6 +35,13 @@ const { user, edit } = props
       edit(user.id, userFields);
       navigate("/");
     }
+  };
+
+  const deleteCurrentUser = (e) => {
+    // props.deleteUser comes from context/auth.context.js - withAuth
+    // it has been destructured above from props
+    deleteUser(user.id);
+    navigate("/");
   };
 
   const handleChange = (e) => {
@@ -62,6 +68,7 @@ const { user, edit } = props
         isValid={() => isValid()}
         handleSubmit={(e) => handleSubmit(e)}
         handleChange={(e) => handleChange(e)}
+        deleteCurrentUser={(e) => deleteCurrentUser(e)}
         userFields={userFields}
         userErrors={userErrors}
         buttonType="Update"
