@@ -27,7 +27,6 @@ const UserPage = () => {
     <div>
       <main className="flex max-w-7xl mx-auto mt-3">
         <div className="flex flex-col w-full">
-          <Banner />
           <UserDetails {...selectedUser} />
         </div>
       </main>

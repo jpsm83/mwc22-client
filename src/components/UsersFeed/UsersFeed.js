@@ -44,12 +44,9 @@ const UsersFeed = () => {
   return (
     <div>
       <div>
-        <div className="flex bg-gray-100 p-3 justify-center m-3">
-          <Search handleSearch={(e) => handleSearch(e)} />
-        </div>
-        <div className="flex flex-wrap justify-between p-1.5">
+        <div className="flex flex-wrap justify-between p-3">
           {users.length === 0 ? (
-            <p className="text-lg font-bold">We got no user register so far</p>
+            <p className="text-lg font-bold">We got no user registered so far...</p>
           ) : filteredUsers.length > 0 ? (
             displayfilteredUsers()
           ) : (

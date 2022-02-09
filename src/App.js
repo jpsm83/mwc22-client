@@ -9,19 +9,23 @@ import EditUser from "./pages/EditUser/EditUser";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import UserPage from "./pages/UserPage/UserPage";
-import Footer from "./components/Footer/Footer";
+import Banner from "./components/Banner/Banner";
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="bg-gray-100">
       <Nav />
+      <div className="sticky top-0">
+        <Banner />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/edit-user/:id" element={<EditUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/user-detail/:id" element={<UserPage />} />
+        <Route path="/user-page/:id" element={<UserPage />} />
       </Routes>
       <Footer />
     </div>

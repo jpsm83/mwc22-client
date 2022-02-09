@@ -56,6 +56,46 @@ const userValidators = {
     return message;
   },
 
+  experience: (value) => {
+    let message;
+    if (value.length > 2) {
+      message = "Experience invalid! Maximun of 40 years experience.";
+    }
+    return message;
+  },
+
+  fields: (value) => {
+    let message;
+    if (value.length > 50) {
+      message = "Experience invalid! Choose the fields from the check boxes.";
+    }
+    return message;
+  },
+
+  country: (value) => {
+    let message;
+    if (value.length > 100) {
+      message = "Country invalid! Maximun of 100 characters long.";
+    }
+    return message;
+  },
+
+  city: (value) => {
+    let message;
+    if (value.length > 100) {
+      message = "Experience invalid! Maximun of 100 characters long.";
+    }
+    return message;
+  },
+
+  photo: (value) => {
+    let message;
+    if (value.length > 3000) {
+      message = "Photo invalid! Maximun of 3000 characters long.";
+    }
+    return message;
+  },
+
   description: (value) => {
     let message;
     if (value.length > 3000) {

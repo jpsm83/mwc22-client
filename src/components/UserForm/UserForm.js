@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { withAuth } from "../../context/auth.context";
 
 const UserForm = ({
+  user,
   deleteCurrentUser,
   handleSubmit,
   handleChange,
@@ -22,7 +24,7 @@ const UserForm = ({
     skills,
     email,
     photo,
-    field,
+    fields,
     description,
     country,
     city,
@@ -129,29 +131,32 @@ const UserForm = ({
                 </label>
                 <input
                   className="inputs sm:text-md"
-                  type="text"
+                  type="number"
                   name="experience"
                   value={experience}
                   onChange={handleChange}
                 />
               </div>
               <div className="flex flex-col">
-                <label className="labels" htmlFor="field">
-                  Field:
-                </label>
-                <input
+                <label htmlFor="fields">Fields:</label>
+                <select
+                  name="fields"
+                  id="fields"
                   className="inputs sm:text-md"
-                  type="text"
-                  name="field"
-                  value={field}
+                  value={fields}
                   onChange={handleChange}
-                />
+                >
+                  <option value="FrontEnd">FrontEnd</option>
+                  <option value="BackEnd">BackEnd</option>
+                  <option value="Data">Data</option>
+                  <option value="Full Stack">Full Stack</option>
+                </select>
               </div>
               <div className="flex flex-col">
                 <label className="labels" htmlFor="skills">
                   Skills:
                 </label>
-                <input
+                <textarea
                   className="inputs sm:text-md"
                   type="text"
                   name="skills"
@@ -166,7 +171,7 @@ const UserForm = ({
                 <label className="labels" htmlFor="description">
                   Description:
                 </label>
-                <input
+                <textarea
                   className="inputs sm:text-md"
                   type="text"
                   name="description"
@@ -227,16 +232,18 @@ const UserForm = ({
             </button>
             <button
               onClick={() => navigate("/")}
-              className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+              className="cursor-pointer shadow-md bg-yellow-700 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
             >
               Back
             </button>
-            <button
-              onClick={deleteCurrentUser}
-              className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
-            >
-              Delete Profile
-            </button>
+            {user && (
+              <button
+                onClick={deleteCurrentUser}
+                className="cursor-pointer shadow-md bg-red-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
+              >
+                Delete Profile
+              </button>
+            )}
           </div>
         </form>
       </div>
@@ -244,4 +251,4 @@ const UserForm = ({
   );
 };
 
-export default UserForm;
+export default withAuth(UserForm);

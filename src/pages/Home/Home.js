@@ -1,12 +1,12 @@
-import React from 'react';
-import Banner from '../../components/Banner/Banner';
-import UsersFeed from '../../components/UsersFeed/UsersFeed';
+import React from "react";
+import UsersFeed from "../../components/UsersFeed/UsersFeed";
 
 const Home = () => {
-  return (<div>
-      <Banner />
+  return (
+    <div className="-mt-40">
       <UsersFeed />
-  </div>);
+    </div>
+  );
 };
 
-export default Home
+export default Home;
