@@ -32,8 +32,8 @@ const Nav = ({ user, logout, handleSearch }) => {
     <div
       className={
         !show
-          ? "fixed flex justify-between items-center top-0 p-3 w-full z-10 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000"
-          : "fixed flex justify-between items-center top-0 p-3 w-full z-10 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000 bg-yellow-700"
+          ? "fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000"
+          : "fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000 bg-yellow-700"
       }
     >
     <div className="shrink-0">

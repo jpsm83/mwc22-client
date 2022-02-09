@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Banner from "../../components/Banner/Banner";
 import UserDetails from "../../components/UserDetails/UserDetails";
 import UserService from "../../services/user.service";
 import { useParams } from "react-router-dom";
@@ -12,7 +11,6 @@ const UserPage = () => {
   const [selectedUser, setSelectedUser] = useState();
 
   // useEffect is the first function to execute in a component
-
   useEffect(() => {
     const { id } = params;
     userService
@@ -24,14 +22,13 @@ const UserPage = () => {
   }, []);
 
   return (
-    <div>
-      <main className="flex max-w-7xl mx-auto mt-3">
-        <div className="flex flex-col w-full">
+    <div className="flex justify-center -mt-20 sm:-mt-36 md:-mt-52 lg:-mt-80">
+        <div className="md:mt-10 max-w-3xl m-3 z-10 rounded-lg bg-gradient-to-b from-yellow-600 to-transparent">
           <UserDetails {...selectedUser} />
         </div>
-      </main>
     </div>
   );
 };
 
 export default UserPage;
+

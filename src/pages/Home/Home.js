@@ -45,7 +45,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-around p-3 -mt-40">
+    <div className="flex flex-wrap justify-around p-3 -mt-20 sm:-mt-30 md:-mt-40 lg:-mt-60">
       {users.length === 0 ? (
         <p className="text-lg font-bold">We got no user registered so far...</p>
       ) : filteredUsers.length > 0 ? (
