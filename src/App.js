@@ -9,18 +9,12 @@ import EditUser from "./pages/EditUser/EditUser";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import UserPage from "./pages/UserPage/UserPage";
-import Banner from "./components/Banner/Banner";
 import Nav from "./components/Nav/Nav";
-import Footer from "./components/Footer/Footer";
 
 function App() {
-
   return (
-    <div className="bg-gray-100 flex flex-col justify-between">
+    <div className="flex flex-col bg-developers bg-contain bg-fixed bg-no-repeat bg-gray-100">
       <Nav />
-      <div className="sticky top-0">
-        <Banner />
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/edit-user/:id" element={<EditUser />} />
@@ -28,7 +22,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/user-page/:id" element={<UserPage />} />
       </Routes>
-      <Footer />
     </div>
   );
 }

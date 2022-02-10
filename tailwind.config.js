@@ -1,10 +1,12 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   media: false,
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: (theme) => ({
+        'developers': "url('/public/img/image-2.jpg')",
+      })
+    },
   },
   variants: {
     extend: {
@@ -12,4 +14,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwind-scrollbar-hide")],
-}
+};

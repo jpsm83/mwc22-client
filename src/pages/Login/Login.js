@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userValidators } from "../../components/Validators/Validators";
 import UserForm from "../../components/UserForm/UserForm";
 import { withAuth } from "../../context/auth.context";
+import Footer from "../../components/Footer/Footer";
 
 const Login = (props) => {
   const [userFields, setUserFields] = useState({ email: "", password: "" });
@@ -45,8 +46,8 @@ const Login = (props) => {
   };
 
   return (
-    <div className="flex justify-center -mt-20 sm:-mt-52 md:-mt-72 lg:-mt-96">
-      <div className="max-w-3xl m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div className="m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
         <UserForm
           isValid={() => isValid()}
           handleSubmit={(e) => handleSubmit(e)}
@@ -56,6 +57,9 @@ const Login = (props) => {
           buttonType="Login"
           loginPage={true}
         />
+      </div>
+      <div className="bottom-0 w-full absolute">
+        <Footer />
       </div>
     </div>
   );

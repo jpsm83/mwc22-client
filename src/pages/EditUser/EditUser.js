@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { userValidators } from "../../components/Validators/Validators";
 import UserForm from "../../components/UserForm/UserForm";
 import { withAuth } from "../../context/auth.context";
+import Footer from "../../components/Footer/Footer";
 
 const EditUser = (props) => {
   const [userFields, setUserFields] = useState({});
@@ -18,7 +19,7 @@ const EditUser = (props) => {
     photo: "",
     fields: "",
     country: "",
-    city: ""
+    city: "",
   });
 
   const { user, edit, deleteUser } = props;
@@ -68,8 +69,8 @@ const EditUser = (props) => {
   };
 
   return (
-    <div className="flex justify-center -mt-20 sm:-mt-36 md:-mt-48 lg:-mt-72">
-      <div className="max-w-3xl m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
+    <div className="flex items-center flex-col mt-24">
+      <div className="m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
         <UserForm
           isValid={() => isValid()}
           handleSubmit={(e) => handleSubmit(e)}
@@ -80,6 +81,9 @@ const EditUser = (props) => {
           buttonType="Update"
           editUserPage={true}
         />
+      </div>
+      <div className="bottom-0 w-full">
+        <Footer />
       </div>
     </div>
   );
