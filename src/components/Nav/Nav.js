@@ -59,11 +59,13 @@ const Nav = ({ user, logout, handleSearch }) => {
                 Logout
               </p>
             </div>
-            <img
-              src={user.photo}
-              alt={user.username}
-              className="object-cover h-12 w-12 flex cursor-auto justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
-            />
+            <Link to={`/edit-user/${user.id}`}>
+              <img
+                src={user.photo}
+                alt={user.username}
+                className="object-cover cursor-pointer h-12 w-12 flex justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
+              />
+            </Link>
           </div>
         </div>
       ) : (

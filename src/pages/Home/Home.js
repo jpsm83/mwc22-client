@@ -1,9 +1,13 @@
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import UserCard from "../../components/UserCard/UserCard";
 import UserService from "../../services/user.service";
+import { withAuth } from "../../context/auth.context";
 
-const Home = () => {
+const Home = (props) => {
   const userService = new UserService();
+
+  const { user } = props;
 
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
@@ -39,8 +43,17 @@ const Home = () => {
   //never update state inside render (setState), it causes infinity loop
   const displayUsers = () => {
     return users.map((user) => {
+      if(user.firstname && user.lastname && user.country && user.city && user.experience && user.fields){
       // spreed operator replace name/value from user - it is a shortcut
-      return <UserCard key={user.id} {...user} />;
+      return (
+        <UserCard
+          key={user.id}
+          {...user}
+          fields={user.fields ? user.fields : "Profile Inconplete"}
+          firstname={user.firstname ? user.firstname : user.username}
+        />
+      );
+      }
     });
   };
 
@@ -57,4 +70,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default withAuth(Home);

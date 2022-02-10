@@ -7,13 +7,18 @@ import { withAuth } from "../../context/auth.context";
 const EditUser = (props) => {
   const [userFields, setUserFields] = useState({});
   const [userErrors, setUserErrors] = useState({
-    email: null,
-    password: null,
-    username: null,
-    firstname: null,
-    lastname: null,
-    skills: null,
-    description: null,
+    email: "",
+    password: "",
+    username: "",
+    firstname: "",
+    lastname: "",
+    skills: "",
+    description: "",
+    experience: "",
+    photo: "",
+    fields: "",
+    country: "",
+    city: ""
   });
 
   const { user, edit, deleteUser } = props;
@@ -33,7 +38,7 @@ const EditUser = (props) => {
       // props.edit comes from context/auth.context.js - withAuth
       // it has been destructured above from props
       edit(user.id, userFields);
-      setTimeout(navigate("/"), 2000);
+      navigate("/");
     }
   };
 

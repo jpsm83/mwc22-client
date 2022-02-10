@@ -38,12 +38,14 @@ const UserForm = ({
         <form className="space-y-4" onSubmit={handleSubmit}>
           {(signupPage || editUserPage) && (
             <div className="flex flex-col">
-                <label className="labels sm:text-md text-shadow-lg"
-              htmlFor="username">
+              <label
+                className="labels sm:text-md text-shadow-lg"
+                htmlFor="username"
+              >
                 Username:
               </label>
               <input
-                  className="inputs sm:text-md focus:outline-none"
+                className="inputs sm:text-md focus:outline-none"
                 type="text"
                 name="username"
                 value={username}
@@ -57,7 +59,8 @@ const UserForm = ({
           {(signupPage || editUserPage || loginPage) && (
             <>
               <div className="flex flex-col">
-                <label className="labels sm:text-md text-shadow-lg"
+                <label
+                  className="labels sm:text-md text-shadow-lg"
                   htmlFor="email"
                 >
                   Email:
@@ -74,12 +77,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="password">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="password"
+                >
                   Password:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="password"
                   name="password"
                   value={password}
@@ -96,12 +101,14 @@ const UserForm = ({
           {editUserPage && (
             <>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="photo">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="photo"
+                >
                   Photo:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="photo"
                   value={photo}
@@ -112,12 +119,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="firstname">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="firstname"
+                >
                   Firstname:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="firstname"
                   value={firstname}
@@ -130,12 +139,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="lastname">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="lastname"
+                >
                   Lastname:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="lastname"
                   value={lastname}
@@ -148,12 +159,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="country">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="country"
+                >
                   Country:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="country"
                   value={country}
@@ -164,12 +177,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="city">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="city"
+                >
                   City:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="city"
                   value={city}
@@ -180,17 +195,22 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="fields">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="fields"
+                >
                   Fields:
                 </label>
                 <select
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="fields"
                   value={fields}
                   onChange={handleChange}
                 >
+                  <option value="" disabled selected>
+                    Choose your stack
+                  </option>
                   <option value="FrontEnd">FrontEnd</option>
                   <option value="BackEnd">BackEnd</option>
                   <option value="Data">Data</option>
@@ -201,12 +221,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="experience">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="experience"
+                >
                   Experience:
                 </label>
                 <input
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="number"
                   name="experience"
                   value={experience}
@@ -219,12 +241,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="skills">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="skills"
+                >
                   Skills:
                 </label>
                 <textarea
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="skills"
                   value={skills}
@@ -235,12 +259,14 @@ const UserForm = ({
                 )}
               </div>
               <div className="flex flex-col">
-                  <label className="labels sm:text-md text-shadow-lg"
-                htmlFor="description">
+                <label
+                  className="labels sm:text-md text-shadow-lg"
+                  htmlFor="description"
+                >
                   Description:
                 </label>
                 <textarea
-                    className="inputs sm:text-md focus:outline-none"
+                  className="inputs sm:text-md focus:outline-none"
                   type="text"
                   name="description"
                   value={description}

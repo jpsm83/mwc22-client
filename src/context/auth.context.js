@@ -29,15 +29,15 @@ class AuthProvider extends React.Component {
   }
 
   // data are the inputs from form signup
-  signup = async (data) => {
-    try {
-      const response = await this.authService.signup(data);
-      if (response) {
+  signup = (data) => {
+    this.authService
+      .signup(data)
+      .then((response) => {
         this.setState({ isLoggedin: true, user: response.data });
-      }
-    } catch (err) {
-      this.setState({ isLoggedin: false, user: null });
-    }
+      })
+      .catch(() => {
+        this.setState({ isLoggedin: false, user: null });
+      });
   };
 
   // data are the fields from Login
@@ -57,7 +57,7 @@ class AuthProvider extends React.Component {
       .catch((error) => console.error(error));
   };
 
-  edit = (id, data) => {
+  edit = async (id, data) => {
     this.authService
       .edit(id, data)
       .then((response) => this.setState({ ...this.state, user: response.data }))
