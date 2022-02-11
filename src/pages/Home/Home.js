@@ -1,49 +1,42 @@
-/* eslint-disable array-callback-return */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import UserCard from "../../components/UserCard/UserCard";
-import UserService from "../../services/user.service";
-import { withAuth } from "../../context/auth.context";
 import Footer from "../../components/Footer/Footer";
+// redux tools to be used
+import { useSelector, useDispatch } from "react-redux";
+import {
+  getAllUsers,
+  fetchAsyncUsers,
+} from "../../features/usersSlice";
 
-const Home = (props) => {
-  const userService = new UserService();
+const Home = () => {
 
-  const { user } = props;
+  const data = useSelector(getAllUsers);
+  const dispatch = useDispatch();
 
-  const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-
+  // useEffect is the first function to execute in a component
   useEffect(() => {
-    refreshState();
-  }, []);
+      dispatch(fetchAsyncUsers())
+  }, [dispatch]);
 
-  const refreshState = async () => {
-    await userService
-      .get()
-      .then((res) => {
-        setUsers(res.data);
-      })
-      .catch((err) => console.error(err));
-  };
 
-  const handleSearch = (e) => {
-    let searchedUsers = e.target.value;
-    let filterUsers = users.filter((user) => {
-      return user.username.toLowerCase().includes(searchedUsers.toLowerCase());
-    });
-    setFilteredUsers({ searchedUsers: filterUsers });
-  };
+  // const handleSearch = (e) => {
+  //   let searchedUsers = e.target.value;
+  //   let filterUsers = data.filter((user) => {
+  //     return user.username.toLowerCase().includes(searchedUsers.toLowerCase());
+  //   });
+  //   setFilteredUsers({ searchedUsers: filterUsers });
+  // };
 
-  const displayfilteredUsers = () => {
-    return filteredUsers.map((user) => {
-      // spreed operator replace name/value from user - it is a shortcut
-      return <UserCard key={user.id} {...user} />;
-    });
-  };
+  // const displayfilteredUsers = () => {
+  //   return filteredUsers.map((user) => {
+  //     // spreed operator replace name/value from user - it is a shortcut
+  //     return <UserCard key={user.id} {...user} />;
+  //   });
+  // };
 
   //never update state inside render (setState), it causes infinity loop
   const displayUsers = () => {
-    return users.map((user) => {
+    return data.map((user) => {
       if (
         user.firstname &&
         user.lastname &&
@@ -68,7 +61,7 @@ const Home = (props) => {
   return (
     <div>
       <div className="flex flex-wrap justify-around p-3 mt-40">
-        {users.length === 0 ? (
+        {/* {data.length === 0 ? (
           <p className="text-lg font-bold">
             We got no user registered so far...
           </p>
@@ -76,7 +69,8 @@ const Home = (props) => {
           displayfilteredUsers()
         ) : (
           displayUsers()
-        )}
+        )} */}
+        {displayUsers()}
       </div>
       <div className="bottom-0 w-full">
         <Footer />
@@ -85,4 +79,4 @@ const Home = (props) => {
   );
 };
 
-export default withAuth(Home);
+export default Home;
