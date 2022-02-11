@@ -8,7 +8,6 @@ export default class UserService {
       baseURL: `${process.env.REACT_APP_API_URL}/users`,
       // withCredentials=true create cookies so cors (server) can reconize with user is in session
       withCredentials: true,
-      
     });
   }
 

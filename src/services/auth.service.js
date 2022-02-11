@@ -2,6 +2,8 @@
 // service setup the config for the connection
 import axios from "axios";
 
+// axios connect the front with back
+// service setup the config for the connection
 export default class AuthService {
   constructor() {
     this.instance = axios.create({
