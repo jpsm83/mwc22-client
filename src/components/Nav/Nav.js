@@ -32,25 +32,30 @@ const Nav = ({ user, logout, handleSearch }) => {
     <div
       className={
         !show
-          ? "fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000"
-          : "fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000 bg-yellow-700"
+          ? "navDisplay"
+          : "navDisplay bg-yellow-700"
       }
     >
       <Link to={"/"}>
-        <div className="shrink-0">
+        <div>
           <img src="/img/mwc22-logo.png" alt="mwc logo" className="h-14" />
         </div>
       </Link>
+      <div className="hidden sm:flex flex-grow">
       <Search handleSearch={(e) => handleSearch(e)} />
+      </div>
       {user ? (
         <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">
           <div className="flex items-center space-x-2">
-            <div className=" cursor-pointer">
-              <Link to={`/edit-user/${user.id}`}>
-                <p className="font-bold">{user.username}</p>
-              </Link>
+            <Link to={`/edit-user/${user.id}`}>
+              <button className="cursor-pointer hidden sm:flex font-bold mx-5 shadow-md items-center py-2 text-center px-8 hover:shadow-xl hover:scale-110 transition transform duration-200 ease-out active:scale-100 rounded-lg text-gray-500 bg-white">
+                Edit Profile
+              </button>{" "}
+            </Link>
+            <div>
+              <p className="font-bold">Hello {user.username}</p>
               <p
-                className="sm:text-sm"
+                className="sm:text-sm cursor-pointer"
                 onClick={() => {
                   logout();
                   navigate("/");
@@ -63,7 +68,7 @@ const Nav = ({ user, logout, handleSearch }) => {
               <img
                 src={user.photo}
                 alt={user.username}
-                className="object-cover cursor-pointer h-12 w-12 flex justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
+                className="object-cover cursor-pointer  h-12 w-12 flex justify-center flex-shrink-0 overflow-hidden items-center rounded-full"
               />
             </Link>
           </div>

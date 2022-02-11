@@ -33,9 +33,15 @@ const UserCard = ({
           {fields}
         </h3>
         <div className="text-sm sm:text-md font-bold mt-3">
+        {experience > 1 ? (
           <p className="text-yellow-800 text-center">
-            Years of experience: {experience}
+            {experience} years of experience.
           </p>
+        ) : (
+          <p className="text-yellow-800 text-center">
+            {experience} year of experience.
+          </p>
+        )}
           <div className="flex justify-between capitalize p-2 text-blue-900">
             <p>{city}</p>
             <p>{country}</p>

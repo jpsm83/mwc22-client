@@ -18,4 +18,7 @@
     .errorInputs {
         @apply text-sm text-red-700 mt-1 font-bold 
     }
+    .navDisplay {
+        @apply fixed flex justify-between items-center top-0 p-3 w-full z-50 ease-in bg-gradient-to-l from-yellow-600 to-transparent duration-1000
+    }
 }

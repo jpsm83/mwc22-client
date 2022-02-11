@@ -3,7 +3,7 @@ import { SearchIcon } from "@heroicons/react/outline";
 
 const Search = ({ handleSearch }) => {
   return (
-    <div className="bg-yellow-400 hover:bg-yellow-500 mx-20 flex flex-grow items-center justify-between h-10 rounded-lg cursor-pointer">
+    <div className="bg-yellow-400 hover:bg-yellow-500 mx-5 flex flex-grow items-center justify-between h-10 rounded-lg cursor-pointer">
       <input
         onChange={handleSearch}
         className="p-2 border-none w-full rounded-l-lg focus:outline-none px-4"
