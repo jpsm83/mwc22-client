@@ -13,7 +13,7 @@ import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
-    <div className="flex flex-col bg-developers bg-cover bg-fixed bg-no-repeat bg-gray-100 bg-top">
+    <div className="flex flex-col bg-developers bg-contain bg-fixed bg-no-repeat bg-gray-300 bg-top">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />

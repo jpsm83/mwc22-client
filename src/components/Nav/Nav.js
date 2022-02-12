@@ -42,7 +42,7 @@ const Nav = ({ user, logout, handleSearch }) => {
         </div>
       </Link>
       <div className="hidden sm:flex flex-grow">
-      {/* <Search handleSearch={(e) => handleSearch(e)} /> */}
+      <Search handleSearch={(e) => handleSearch(e)} />
       </div>
       {user ? (
         <div className="text-gray-200 flex items-center text-right text-xs sm:text-sm space-x-6 mr-4 whitespace-nowrap">

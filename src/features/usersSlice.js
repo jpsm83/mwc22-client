@@ -16,16 +16,6 @@ export const fetchAsyncUsers = createAsyncThunk(
   }
 );
 
-// createAsyncThunk is a middleware from redux to make unsyncronous calls
-
-export const fetchAsyncUserSearch = createAsyncThunk(
-  "userSearch/fetchAsyncUserSearch",
-  async (id) => {
-    const response = await userService.get(id);
-    return response.data;
-  }
-);
-
 const initialState = {
   allUsers: [],
   userSearch: [],
@@ -39,6 +29,20 @@ const usersSlice = createSlice({
     // those are actions waiting to be dispatched
     clearState: (state) => {
       state.userSearch = {};
+    },
+
+    setSearchHandle: (state, action) => {
+      state.userSearch = action.payload;
+    },
+
+    handleSearch: (e, state) => {
+      let searchedUsers = e.target.value;
+      let filterUsers = state.allUsers.filter((user) => {
+        return user.username
+          .toLowerCase()
+          .includes(searchedUsers.toLowerCase());
+      });
+      state.userSearch = { searchedUsers: filterUsers };
     },
   },
 
@@ -54,27 +58,15 @@ const usersSlice = createSlice({
     [fetchAsyncUsers.rejected]: () => {
       console.log("Rejected!");
     },
-
-    // "pending", "fulfilled", "rejected" defined the life cicle of the function "fetchAsyncUserSearch"
-    [fetchAsyncUserSearch.pending]: () => {
-      console.log("Pending");
-    },
-    [fetchAsyncUserSearch.fulfilled]: (state, { payload }) => {
-      console.log("Fetched Successfully!");
-      return { ...state, selectedMovieOrSerie: payload };
-    },
-    [fetchAsyncUserSearch.rejected]: () => {
-      console.log("Rejected!");
-    },
   },
 });
 
-export const { clearState } = usersSlice.actions;
+export const { clearState, setSearchHandle } = usersSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: user) => state.user.value)`
 export const getAllUsers = (state) => state.users.allUsers;
-export const selectUser = (state) => state.users.userSearch;
+export const searchedtUsers = (state) => state.users.userSearch;
 
 export default usersSlice.reducer;

@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <img
           src="./img/github.webp"
-          alt="Food logo"
+          alt="Github logo"
           className="w-10 flex-shrink-0 mx-2 md:flex"
         />
         <div className="cursor-pointer text-left">

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        'developers': "linear-gradient(to bottom, rgba(243,244,246,0), rgba(0,0,0,1)), url('/public/img/image-2.jpg')",
+        'developers': "url('/public/img/image-20.jpg')",
       })
     },
   },

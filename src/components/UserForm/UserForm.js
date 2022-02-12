@@ -33,7 +33,6 @@ const UserForm = ({
   const navigate = useNavigate();
 
   return (
-    <div>
       <div className="flex flex-col w-full shadow-2xl rounded-lg p-3 sm:p-6">
         <form className="space-y-4" onSubmit={handleSubmit}>
           {(signupPage || editUserPage) && (
@@ -280,7 +279,7 @@ const UserForm = ({
               </div>
             </>
           )}
-          <div className="text-center space-x-6">
+          <div className="text-center space-x-4">
             <button
               className="cursor-pointer shadow-md bg-green-800 mt-4 px-4 py-1 text-center hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg"
               disabled={!isValid}
@@ -304,7 +303,6 @@ const UserForm = ({
             )}
           </div>
         </form>
-      </div>
     </div>
   );
 };
