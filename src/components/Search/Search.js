@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchIcon } from "@heroicons/react/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchHandle, getAllUsers } from "../../features/usersSlice";
@@ -7,17 +7,23 @@ const Search = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   const data = useSelector(getAllUsers);
-
   const dispatch = useDispatch();
+
+    // useEffect is the first function to execute in a component
+    useEffect(() => {
+      dispatch(setSearchHandle(filteredUsers));
+    }, [filteredUsers]);
+  
+// console.log(data)
+// console.log(filteredUsers)
 
   const handleSearch = (e) => {
     let searchedUsers = e.target.value;
     let filterUsers = data.filter((user) => {
+      // it is not working with any other option but .username - No idea why???
       return user.username.toLowerCase().includes(searchedUsers.toLowerCase());
-    });
+    })
     setFilteredUsers(filterUsers);
-
-    dispatch(setSearchHandle(filteredUsers));
   };
 
   return (

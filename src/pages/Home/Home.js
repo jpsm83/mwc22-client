@@ -7,18 +7,22 @@ import {
   getAllUsers,
   fetchAsyncUsers,
   searchedtUsers,
+  filteredFields,
 } from "../../features/usersSlice";
+import Filter from "../../components/Filter/Filter";
+
 
 const Home = () => {
   const data = useSelector(getAllUsers);
   const searchedData = useSelector(searchedtUsers);
+  const selectedFilter = useSelector(filteredFields)
 
   const dispatch = useDispatch();
 
   // useEffect is the first function to execute in a component
   useEffect(() => {
     dispatch(fetchAsyncUsers());
-  }, [dispatch]);
+  }, []);
 
   //never update state inside render (setState), it causes infinity loop
   const displayUsers = () => {
@@ -44,6 +48,14 @@ const Home = () => {
     });
   };
 
+
+  // .filter((user) => {
+  //   if(selectedFilter === "Any"){
+  //     return true
+  //   } return selectedFilter === user.fields
+  // })
+
+
   const displayfilteredUsers = () => {
     return searchedData.map((user) => {
       if (
@@ -68,8 +80,9 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-wrap justify-around p-3 mt-40">
+    <div className="mt-40">
+          <Filter />
+      <div className="flex flex-wrap justify-around p-3">
         {data.length === 0 ? (
           <p className="text-lg font-bold">
             We got no user registered so far...

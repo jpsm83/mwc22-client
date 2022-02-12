@@ -19,6 +19,7 @@ export const fetchAsyncUsers = createAsyncThunk(
 const initialState = {
   allUsers: [],
   userSearch: [],
+  filterSelection: "Any"
 };
 
 const usersSlice = createSlice({
@@ -27,23 +28,13 @@ const usersSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     // those are actions waiting to be dispatched
-    clearState: (state) => {
-      state.userSearch = {};
-    },
-
     setSearchHandle: (state, action) => {
       state.userSearch = action.payload;
     },
 
-    handleSearch: (e, state) => {
-      let searchedUsers = e.target.value;
-      let filterUsers = state.allUsers.filter((user) => {
-        return user.username
-          .toLowerCase()
-          .includes(searchedUsers.toLowerCase());
-      });
-      state.userSearch = { searchedUsers: filterUsers };
-    },
+    filterSelected: (state, action) => {
+      state.filterSelection = action.payload
+    }
   },
 
   extraReducers: {
@@ -61,12 +52,14 @@ const usersSlice = createSlice({
   },
 });
 
-export const { clearState, setSearchHandle } = usersSlice.actions;
+// those are actions exported that can be used anywhere
+export const { clearState, setSearchHandle, filterSelected } = usersSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: user) => state.user.value)`
 export const getAllUsers = (state) => state.users.allUsers;
 export const searchedtUsers = (state) => state.users.userSearch;
+export const filteredFields = (state) => state.users.filterSelection;
 
 export default usersSlice.reducer;
