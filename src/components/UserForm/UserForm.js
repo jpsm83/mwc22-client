@@ -33,7 +33,7 @@ const UserForm = ({
   const navigate = useNavigate();
 
   return (
-      <div className="flex flex-col w-full shadow-2xl rounded-lg p-3 sm:p-6">
+      <div className="flex flex-col shadow-2xl rounded-lg p-3 sm:p-6">
         <form className="space-y-4" onSubmit={handleSubmit}>
           {(signupPage || editUserPage) && (
             <div className="flex flex-col">
