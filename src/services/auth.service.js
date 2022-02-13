@@ -2,8 +2,6 @@
 // service setup the config for the connection
 import axios from "axios";
 
-// axios connect the front with back
-// service setup the config for the connection
 export default class AuthService {
   constructor() {
     this.instance = axios.create({
@@ -18,6 +16,6 @@ export default class AuthService {
   login = (data) => this.instance.post("/login", data);
   logout = () => this.instance.post("/logout");
   isLoggedin = () => this.instance.get("/isLoggedin");
-  edit = (id, data) => this.instance.put(`/${id}`, data);
-  delete = (id) => this.instance.delete(`/${id}`);
+  edit = (id, data) => this.instance.put(`/edit-user/${id}`, data);
+  delete = (id) => this.instance.delete(`/delete/${id}`);
 }

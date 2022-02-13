@@ -86,7 +86,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col h-full">
-    <Filter />
+      <Filter />
       <div className="flex flex-wrap justify-around p-3">
         {data.length === 0 ? (
           <p className="labels text-shadow-lg text-center m-6 underline text-xl">
@@ -98,7 +98,7 @@ const Home = () => {
           displayUsers()
         )}
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };

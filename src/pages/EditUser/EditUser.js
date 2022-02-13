@@ -70,7 +70,9 @@ const EditUser = (props) => {
 
   return (
     <div className="flex items-center flex-col mt-24">
-    <h2 className="labels text-shadow-lg text-center m-6 underline text-xl">Fill all the fields to create a Profile Card & appear in our Search</h2>
+      <h2 className="labels text-shadow-lg text-center m-6 underline text-xl">
+        Fill all the fields to create a Profile Card & appear in our Search
+      </h2>
       <div className="m-3 z-10 rounded-lg bg-yellow-600 bg-opacity-70 mb-6">
         <UserForm
           isValid={() => isValid()}
@@ -83,7 +85,7 @@ const EditUser = (props) => {
           editUserPage={true}
         />
       </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };

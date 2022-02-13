@@ -9,20 +9,18 @@ const Search = () => {
   const data = useSelector(getAllUsers);
   const dispatch = useDispatch();
 
-    // useEffect is the first function to execute in a component
-    useEffect(() => {
-      dispatch(setSearchHandle(filteredUsers));
-    }, [filteredUsers]);
-  
-// console.log(data)
-// console.log(filteredUsers)
+  // useEffect is the first function to execute in a component
+  useEffect(() => {
+    dispatch(setSearchHandle(filteredUsers));
+  }, [filteredUsers]);
 
   const handleSearch = (e) => {
     let searchedUsers = e.target.value;
     let filterUsers = data.filter((user) => {
+
       // it is not working with any other option but .username - No idea why???
       return user.username.toLowerCase().includes(searchedUsers.toLowerCase());
-    })
+    });
     setFilteredUsers(filterUsers);
   };
 

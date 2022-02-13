@@ -11,12 +11,6 @@ const Login = (props) => {
 
   const navigate = useNavigate();
 
-  // on server i am getting first "options" "get" "post"  in this order
-  // with async await i could change it for "options" "post" "get" expect the home page update data without hard refres
-  // did not work - data is correct but home page is not refreshing
-  // useEffect runs at the begging only and those pages are not related to force it to update
-  // i will try put everything in global state with redux
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isValid()) {

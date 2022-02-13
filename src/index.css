@@ -9,6 +9,9 @@
 }
   
 @layer components {
+    .buttons {
+        @apply cursor-pointer shadow-md bg-yellow-700 mx-2 my-1 px-4 py-1 text-center hover:bg-yellow-800 hover:scale-105 transition transform duration-200 ease-out active:scale-95 text-white rounded-lg
+    }
     .labels {
         @apply text-lg font-bold text-white
     }

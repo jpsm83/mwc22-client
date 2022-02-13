@@ -14,7 +14,7 @@ const UserCard = ({
   return (
     <div>
       <Link
-        to={`/user-page/${id}`}
+        to={`/developer/${id}`}
         className="flex w-50 justify-center items-center shadow-lg flex-col m-3 rounded-lg hover:shadow-2xl transition transform duration-200 ease-in-out bg-gradient-to-t from-white to-transparent"
       >
         <p className="text-shadow-lg mb-3 text-md sm:text-lg m-1 capitalize font-bold text-white text-center">
@@ -33,15 +33,15 @@ const UserCard = ({
           {fields}
         </h3>
         <div className="text-sm sm:text-md font-bold mt-3">
-        {experience > 1 ? (
-          <p className="text-yellow-800 text-center">
-            {experience} years of experience.
-          </p>
-        ) : (
-          <p className="text-yellow-800 text-center">
-            {experience} year of experience.
-          </p>
-        )}
+          {experience > 1 ? (
+            <p className="text-yellow-800 text-center">
+              {experience} years of experience.
+            </p>
+          ) : (
+            <p className="text-yellow-800 text-center">
+              {experience} year of experience.
+            </p>
+          )}
           <div className="flex justify-between capitalize p-2 text-blue-900">
             <p>{city}</p>
             <p>{country}</p>

@@ -4,7 +4,6 @@ const EMAIL_PATTERN =
 
 //front validator MUST be equal to back validators
 const userValidators = {
-  
   username: (value) => {
     let message;
     if (!value || value.length > 50) {

@@ -16,7 +16,7 @@ const Footer = () => {
           </a>
         </div>
         <img
-          src="./img/github.webp"
+          src="/img/github.webp"
           alt="Github logo"
           className="w-10 flex-shrink-0 mx-2 md:flex"
         />
